@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CLASSIC</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+
+      th, td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CLASSIC HS</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Card</th>
+          <th>Included %</th>
+          <th>Avg. Copies</th>
+          <th>Deck WR</th>
+          <th>Times Played</th>
+          <th>Mulligan WR</th>
+          <th>Kept %</th>
+          <th>Drawn WR</th>
+        </tr>
+      </thead>
+      <tbody id="card-data">
+        <!-- This is where the data will go -->
+      </tbody>
+    </table>
+    <script>
+      fetch("druid.json")  
+      .then(response => response.json()) // Parse the JSON data
+      .then(cardData => {
+      const tableBody = document.getElementById("card-data");
+        cardData.forEach(card => {
+          const row = document.createElement("tr");
+          
+          const nameCell = document.createElement("td");
+          nameCell.textContent = card.name;
+          
+          const includedPercentCell = document.createElement("td");
+          includedPercentCell.textContent = card.popularity;
+          
+          const avgCopiesCell = document.createElement("td");
+          avgCopiesCell.textContent = card["avg-copies"];
+          
+          const deckWinrateCell = document.createElement("td");
+          deckWinrateCell.textContent = card["deck-winrate"];
+          const timesPlayedCell = document.createElement("td");
+          timesPlayedCell.textContent = card["times-played"];
+          const mulliganWinrateCell = document.createElement("td");
+          mulliganWinrateCell.textContent = card["mulligan-winrate"];
+          const keptPercentCell = document.createElement("td");
+          keptPercentCell.textContent = card["kept-percent"];
+          const drawnWinrateCell = document.createElement("td");
+          drawnWinrateCell.textContent = card["drawn-winrate"];
+          row.appendChild(nameCell);
+          row.appendChild(includedPercentCell);
+          row.appendChild(avgCopiesCell);
+          row.appendChild(deckWinrateCell);
+          row.appendChild(timesPlayedCell);
+          row.appendChild(mulliganWinrateCell);
+          row.appendChild(keptPercentCell);
+          row.appendChild(drawnWinrateCell);
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => console.error(error));
+          
+    </script>
+  </body>
+</html>

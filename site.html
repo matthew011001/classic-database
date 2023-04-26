@@ -38,7 +38,18 @@
     </style>
   </head>
   <body>
-    <h1>CLASSIC HS</h1>
+    <h1>Classic Hearthstone Statistics</h1>
+    <select id="class-select">
+      <option value="druid.json">Druid</option>
+      <option value="hunter.json">Hunter</option>
+      <option value="mage.json">Mage</option>
+      <option value="paladin.json">Paladin</option>
+      <option value="priest.json">Priest</option>
+      <option value="rogue.json">Rogue</option>
+      <option value="shaman.json">Shaman</option>
+      <option value="warlock.json">Warlock</option>
+      <option value="warrior.json">Warrior</option>
+    </select>
     <table>
       <thead>
         <tr>
@@ -57,45 +68,62 @@
       </tbody>
     </table>
     <script>
-      fetch("druid.json")  
-      .then(response => response.json()) // Parse the JSON data
-      .then(cardData => {
-      const tableBody = document.getElementById("card-data");
-        cardData.forEach(card => {
-          const row = document.createElement("tr");
-          
-          const nameCell = document.createElement("td");
-          nameCell.textContent = card.name;
-          
-          const includedPercentCell = document.createElement("td");
-          includedPercentCell.textContent = card.popularity;
-          
-          const avgCopiesCell = document.createElement("td");
-          avgCopiesCell.textContent = card["avg-copies"];
-          
-          const deckWinrateCell = document.createElement("td");
-          deckWinrateCell.textContent = card["deck-winrate"];
-          const timesPlayedCell = document.createElement("td");
-          timesPlayedCell.textContent = card["times-played"];
-          const mulliganWinrateCell = document.createElement("td");
-          mulliganWinrateCell.textContent = card["mulligan-winrate"];
-          const keptPercentCell = document.createElement("td");
-          keptPercentCell.textContent = card["kept-percent"];
-          const drawnWinrateCell = document.createElement("td");
-          drawnWinrateCell.textContent = card["drawn-winrate"];
-          row.appendChild(nameCell);
-          row.appendChild(includedPercentCell);
-          row.appendChild(avgCopiesCell);
-          row.appendChild(deckWinrateCell);
-          row.appendChild(timesPlayedCell);
-          row.appendChild(mulliganWinrateCell);
-          row.appendChild(keptPercentCell);
-          row.appendChild(drawnWinrateCell);
-          tableBody.appendChild(row);
-        });
-      })
-      .catch(error => console.error(error));
-          
+      const select = document.getElementById("class-select");
+const tableBody = document.getElementById("card-data");
+
+function populateTable(classname) {
+  const url = `https://raw.githubusercontent.com/matthew011001/classic-database/master/${classname}.json`;
+  fetch(url)
+    .then(response => response.json()) // Parse the JSON data
+    .then(cardData => {
+      // Remove all existing rows from the table
+      while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.firstChild);
+      }
+      cardData.forEach(card => {
+        const row = document.createElement("tr");
+        const nameCell = document.createElement("td");
+        nameCell.textContent = card.name;
+        const includedPercentCell = document.createElement("td");
+        includedPercentCell.textContent = card.popularity;
+        const avgCopiesCell = document.createElement("td");
+        avgCopiesCell.textContent = card["avg-copies"];
+        const deckWinrateCell = document.createElement("td");
+        deckWinrateCell.textContent = card["deck-winrate"];
+        const timesPlayedCell = document.createElement("td");
+        timesPlayedCell.textContent = card["times-played"];
+        const mulliganWinrateCell = document.createElement("td");
+        mulliganWinrateCell.textContent = card["mulligan-winrate"];
+        const keptPercentCell = document.createElement("td");
+        keptPercentCell.textContent = card["kept-percent"];
+        const drawnWinrateCell = document.createElement("td");
+        drawnWinrateCell.textContent = card["drawn-winrate"];
+        row.appendChild(nameCell);
+        row.appendChild(includedPercentCell);
+        row.appendChild(avgCopiesCell);
+        row.appendChild(deckWinrateCell);
+        row.appendChild(timesPlayedCell);
+        row.appendChild(mulliganWinrateCell);
+        row.appendChild(keptPercentCell);
+        row.appendChild(drawnWinrateCell);
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(error => console.error(error));
+}
+
+// Populate the table with the data for the "Druid" option by default
+populateTable("druid");
+
+// Add an event listener to the dropdown menu to populate the table with the selected class data
+select.addEventListener("change", (event) => {
+  const selectedValue = event.target.value;
+  populateTable(selectedValue.split(".")[0]); // Remove the ".json" extension from the value
+});
+window.addEventListener("load", () => {
+  const select = document.getElementById("class-select");
+  select.selectedIndex = 0; // Set the default selected option to "Druid"
+});
     </script>
   </body>
 </html>

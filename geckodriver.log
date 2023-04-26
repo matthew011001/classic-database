@@ -4826,3 +4826,47 @@ JavaScript warning: https://cdn.js7k.com/ix/talon-1.0.40.js, line 1: WEBGL_debug
 1675833644470	Marionette	INFO	Stopped listening on port 60439
 Dynamically enable window occlusion 1
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1682472003250	geckodriver	INFO	Listening on 127.0.0.1:55695
+1682472012566	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55696" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\matth\\AppData\\Local\\Temp\\rust_mozprofileHuz88u"
+1682472157196	geckodriver	INFO	Listening on 127.0.0.1:55765
+1682472166870	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55766" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\matth\\AppData\\Local\\Temp\\rust_mozprofile85l5aL"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682472168560	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682472168565	Marionette	INFO	Listening on port 55784
+Read port: 55784
+WebDriver BiDi listening on ws://127.0.0.1:55766
+1682472168692	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:55766/devtools/browser/117bf9bf-b95b-42bb-ae02-5d421e9295e7
+JavaScript warning: moz-extension://82decddb-fbd4-4482-8c48-dd51e7a977fb/abp-background.js, line 0: Successfully compiled asm.js code (total compilation time 1ms)
+Extension error: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIDOMWindowUtils.addSheet]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://gre/modules/ExtensionCommon.jsm :: runSafeSyncWithoutClone :: line 77"  data: no] undefined 77
+[[Exception stack
+runSafeSyncWithoutClone@resource://gre/modules/ExtensionCommon.jsm:77:12
+inject/cssPromise<@resource://gre/modules/ExtensionContent.jsm:547:36
+Current stack
+runSafeSyncWithoutClone@resource://gre/modules/ExtensionCommon.jsm:88:37
+inject/cssPromise<@resource://gre/modules/ExtensionContent.jsm:547:36
+]]
+1682472382238	geckodriver	INFO	Listening on 127.0.0.1:55921
+1682472392542	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55922" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\matth\\AppData\\Local\\Temp\\rust_mozprofilemQgeG2"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682472394265	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682472394270	Marionette	INFO	Listening on port 55936
+Read port: 55936
+WebDriver BiDi listening on ws://127.0.0.1:55922
+1682472394398	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:55922/devtools/browser/183e0496-b6d9-457a-a6ef-499466fbb984
+JavaScript warning: moz-extension://82decddb-fbd4-4482-8c48-dd51e7a977fb/abp-background.js, line 0: Successfully compiled asm.js code (total compilation time 1ms)
+Extension error: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIDOMWindowUtils.addSheet]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://gre/modules/ExtensionCommon.jsm :: runSafeSyncWithoutClone :: line 77"  data: no] undefined 77
+[[Exception stack
+runSafeSyncWithoutClone@resource://gre/modules/ExtensionCommon.jsm:77:12
+inject/cssPromise<@resource://gre/modules/ExtensionContent.jsm:547:36
+Current stack
+runSafeSyncWithoutClone@resource://gre/modules/ExtensionCommon.jsm:88:37
+inject/cssPromise<@resource://gre/modules/ExtensionContent.jsm:547:36
+]]
